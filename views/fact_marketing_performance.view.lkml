@@ -1,6 +1,6 @@
 view: fact_marketing_performance {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.fact_marketing_performance` ;;
-  
+
   # Primary Key
   dimension: marketing_key {
     primary_key: yes
@@ -10,11 +10,7 @@ view: fact_marketing_performance {
   }
 
   # Date dimension
-  dimension: activity_date {
-    type: date
-    sql: ${TABLE}.activity_date ;;
-    description: "Activity date"
-  }
+
 
   dimension_group: activity {
     type: time

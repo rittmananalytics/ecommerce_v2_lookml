@@ -1,6 +1,6 @@
 view: fact_email_marketing {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.fact_email_marketing` ;;
-
+  
   # Primary Key
   dimension: email_marketing_key {
     primary_key: yes

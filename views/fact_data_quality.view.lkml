@@ -1,6 +1,6 @@
 view: fact_data_quality {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.fact_data_quality` ;;
-
+  
   # Primary Key
   dimension: data_quality_key {
     primary_key: yes
@@ -223,7 +223,7 @@ view: fact_data_quality {
 
   dimension: health_status {
     type: string
-    sql: CASE
+    sql: CASE 
       WHEN ${overall_pipeline_health_score} >= 8.0 THEN 'Healthy'
       WHEN ${overall_pipeline_health_score} >= 6.0 THEN 'Warning'
       WHEN ${overall_pipeline_health_score} >= 4.0 THEN 'Critical'

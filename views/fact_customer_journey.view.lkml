@@ -1,6 +1,6 @@
 view: fact_customer_journey {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.fact_customer_journey` ;;
-
+  
   # Primary Key
   dimension: journey_key {
     primary_key: yes

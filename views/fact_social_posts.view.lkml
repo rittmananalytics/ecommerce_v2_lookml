@@ -1,6 +1,6 @@
 view: fact_social_posts {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.fact_social_posts` ;;
-
+  
   # Primary Key
   dimension: social_post_key {
     primary_key: yes

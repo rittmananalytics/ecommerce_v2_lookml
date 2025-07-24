@@ -1,6 +1,6 @@
 view: fact_sessions {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.fact_sessions` ;;
-
+  
   # Primary Key
   dimension: session_key {
     primary_key: yes
@@ -412,8 +412,8 @@ view: fact_sessions {
 
   measure: cart_abandonment_rate {
     type: number
-    sql: COUNT(CASE WHEN ${added_to_cart} AND NOT ${completed_purchase} THEN 1 END) /
-      NULLIF(COUNT(CASE WHEN ${added_to_cart} THEN 1 END), 0) ;;
+    sql: COUNT(CASE WHEN ${added_to_cart} AND NOT ${completed_purchase} THEN 1 END) / 
+         NULLIF(COUNT(CASE WHEN ${added_to_cart} THEN 1 END), 0) ;;
     description: "Cart abandonment rate"
     value_format_name: percent_1
   }

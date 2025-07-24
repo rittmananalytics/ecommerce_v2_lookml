@@ -1,6 +1,6 @@
 view: dim_products {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.dim_products` ;;
-
+  
   # Primary Key
   dimension: product_key {
     primary_key: yes

@@ -1,6 +1,6 @@
 view: dim_customer_metrics {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.dim_customer_metrics` ;;
-
+  
   # Primary Key
   dimension: customer_metrics_key {
     primary_key: yes

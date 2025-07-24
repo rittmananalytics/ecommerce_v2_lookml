@@ -1,6 +1,6 @@
 view: fact_events {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.fact_events` ;;
-
+  
   # Primary Key
   dimension: event_key {
     primary_key: yes

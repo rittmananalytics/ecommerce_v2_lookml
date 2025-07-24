@@ -1,6 +1,6 @@
 view: dim_channels {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.dim_channels` ;;
-
+  
   # Primary Key
   dimension: channel_key {
     primary_key: yes

@@ -1,6 +1,6 @@
 view: dim_social_content {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.dim_social_content` ;;
-
+  
   # Primary Key
   dimension: content_key {
     primary_key: yes

@@ -1,6 +1,6 @@
 view: fact_inventory {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.fact_inventory` ;;
-
+  
   # Primary Key
   dimension: inventory_key {
     primary_key: yes

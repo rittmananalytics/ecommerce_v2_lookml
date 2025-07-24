@@ -1,6 +1,6 @@
 view: fact_order_items {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.fact_order_items` ;;
-
+  
   # Primary Key
   dimension: order_item_key {
     primary_key: yes
@@ -103,7 +103,7 @@ view: fact_order_items {
   }
 
   dimension: product_type {
-    type: number
+    type: string
     sql: ${TABLE}.product_type ;;
     description: "Product type"
   }

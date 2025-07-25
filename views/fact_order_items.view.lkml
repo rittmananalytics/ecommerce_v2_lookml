@@ -308,6 +308,17 @@ view: fact_order_items {
     description: "Line discount rate"
   }
 
+  # Country dimension for dashboard use
+  dimension: order_country {
+    type: string
+    sql: CASE
+      WHEN orders.shipping_country IS NOT NULL AND orders.shipping_country != '' THEN orders.shipping_country
+      WHEN customers.country IS NOT NULL THEN CAST(customers.country AS STRING)
+      ELSE 'Unknown'
+    END ;;
+    description: "Order country (from shipping address or customer)"
+  }
+
   # Metadata
   dimension_group: warehouse_updated {
     type: time

@@ -1,6 +1,6 @@
 view: fact_order_items {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.fact_order_items` ;;
-  
+
   # Primary Key
   dimension: order_item_key {
     primary_key: yes
@@ -336,7 +336,7 @@ view: fact_order_items {
 
   measure: total_revenue {
     type: sum
-    sql: ${line_total} ;;
+    sql: COALESCE(${line_total}, ${line_price}, ${quantity} * ${unit_price}, 0) ;;
     value_format_name: usd
     description: "Total revenue"
   }

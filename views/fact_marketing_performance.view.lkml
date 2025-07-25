@@ -234,40 +234,40 @@ view: fact_marketing_performance {
 
   measure: total_spend {
     type: sum
-    sql: ${spend_amount} ;;
+    sql: COALESCE(${spend_amount}, 0) ;;
     value_format_name: usd
     description: "Total advertising spend"
   }
 
   measure: total_revenue {
     type: sum
-    sql: ${revenue} ;;
+    sql: COALESCE(${revenue}, 0) ;;
     value_format_name: usd
     description: "Total attributed revenue"
   }
 
   measure: total_profit {
     type: sum
-    sql: ${profit} ;;
+    sql: COALESCE(${profit}, 0) ;;
     value_format_name: usd
     description: "Total profit"
   }
 
   measure: total_impressions {
     type: sum
-    sql: ${impressions} ;;
+    sql: COALESCE(${impressions}, 0) ;;
     description: "Total impressions"
   }
 
   measure: total_clicks {
     type: sum
-    sql: ${clicks} ;;
+    sql: COALESCE(${clicks}, 0) ;;
     description: "Total clicks"
   }
 
   measure: total_conversions {
     type: sum
-    sql: ${conversions} ;;
+    sql: COALESCE(${conversions}, 0) ;;
     description: "Total conversions"
   }
 

@@ -1,6 +1,6 @@
 view: fact_customer_journey {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.fact_customer_journey` ;;
-  
+
   # Primary Key
   dimension: journey_key {
     primary_key: yes
@@ -42,6 +42,13 @@ view: fact_customer_journey {
     type: number
     sql: ${TABLE}.order_date_key ;;
     description: "Order date key"
+    hidden: yes
+  }
+
+  dimension: channel_key {
+    type: number
+    sql: ${TABLE}.channel_key ;;
+    description: "Channel surrogate key"
     hidden: yes
   }
 
@@ -387,5 +394,12 @@ view: fact_customer_journey {
     sql: ${conversion_count}*1.0 / NULLIF(${count},0) ;;
     value_format_name: percent_2
     description: "Session conversion rate"
+  }
+
+  measure: total_revenue {
+    type: sum
+    sql: ${shopify_order_value} ;;
+    value_format_name: usd
+    description: "Total revenue (alias for total_shopify_order_value)"
   }
 }

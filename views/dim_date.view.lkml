@@ -1,6 +1,6 @@
 view: dim_date {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.dim_date` ;;
-  
+
   # Primary Key
   dimension: date_key {
     primary_key: yes
@@ -16,6 +16,12 @@ view: dim_date {
     datatype: datetime
     sql: ${TABLE}.date_actual ;;
     description: "Calendar date"
+  }
+
+  dimension: calendar_date {
+    type: date
+    sql: ${TABLE}.date_actual ;;
+    description: "Calendar date (alias for date_actual)"
   }
 
   # Year Dimensions

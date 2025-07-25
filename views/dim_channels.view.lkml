@@ -1,6 +1,6 @@
 view: dim_channels {
   sql_table_name: `ra-development.analytics_ecommerce_ecommerce.dim_channels` ;;
-  
+
   # Primary Key
   dimension: channel_key {
     primary_key: yes
@@ -44,6 +44,18 @@ view: dim_channels {
     type: string
     sql: ${TABLE}.channel_group ;;
     description: "Channel grouping"
+  }
+
+  dimension: channel_name {
+    type: string
+    sql: COALESCE(${channel_campaign}, ${channel_group}, CONCAT(${channel_source}, ' / ', ${channel_medium})) ;;
+    description: "Channel display name"
+  }
+
+  dimension: source_medium {
+    type: string
+    sql: CONCAT(${channel_source}, ' / ', ${channel_medium}) ;;
+    description: "Source / Medium combination"
   }
 
   dimension: attribution_type {

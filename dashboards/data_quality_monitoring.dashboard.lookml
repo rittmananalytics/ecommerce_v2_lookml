@@ -3,9 +3,9 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Data pipeline health, quality metrics, and monitoring dashboard"
-  
+
   refresh: 15 minutes
-  
+
   filters:
   - name: date_range
     title: Date Range
@@ -18,8 +18,8 @@
       display: inline
     model: ecommerce_demo
     explore: data_quality
-    field: quality_date.calendar_date
-    
+    field: quality_date.date_actual_date
+
   - name: data_source_filter
     title: Data Source
     type: field_filter
@@ -32,7 +32,7 @@
     model: ecommerce_demo
     explore: data_quality
     field: data_quality.data_source
-    
+
   - name: data_layer_filter
     title: Data Layer
     type: field_filter
@@ -45,9 +45,9 @@
     model: ecommerce_demo
     explore: data_quality
     field: data_quality.data_layer
-    
+
   elements:
-  
+
   # Data Quality KPIs
   - title: Overall Test Pass Rate
     name: overall_test_pass_rate
@@ -71,14 +71,14 @@
           palette_id: 56d0c358-10a0-4fd6-aa0b-b117bef527ab}, bold: false, italic: false,
         strikethrough: false, fields: !!null ''}]
     listen:
-      Date Range: quality_date.calendar_date
-      Data Source: data_quality.data_source
-      Data Layer: data_quality.data_layer
+      date_range: quality_date.date_actual_date
+      data_source_filter: data_quality.data_source
+      data_layer_filter: data_quality.data_layer
     row: 0
     col: 0
     width: 4
     height: 4
-    
+
   - title: Average Pipeline Health
     name: average_pipeline_health
     model: ecommerce_demo
@@ -101,14 +101,14 @@
           palette_id: 56d0c358-10a0-4fd6-aa0b-b117bef527ab}, bold: false, italic: false,
         strikethrough: false, fields: !!null ''}]
     listen:
-      Date Range: quality_date.calendar_date
-      Data Source: data_quality.data_source
-      Data Layer: data_quality.data_layer
+      date_range: quality_date.date_actual_date
+      data_source_filter: data_quality.data_source
+      data_layer_filter: data_quality.data_layer
     row: 0
     col: 4
     width: 4
     height: 4
-    
+
   - title: Total Data Volume
     name: total_data_volume
     model: ecommerce_demo
@@ -121,14 +121,14 @@
     show_comparison: false
     value_format: "#,##0"
     listen:
-      Date Range: quality_date.calendar_date
-      Data Source: data_quality.data_source
-      Data Layer: data_quality.data_layer
+      date_range: quality_date.date_actual_date
+      data_source_filter: data_quality.data_source
+      data_layer_filter: data_quality.data_layer
     row: 0
     col: 8
     width: 4
     height: 4
-    
+
   - title: Sources with Issues
     name: sources_with_issues
     model: ecommerce_demo
@@ -148,14 +148,14 @@
           palette_id: 56d0c358-10a0-4fd6-aa0b-b117bef527ab}, bold: false, italic: false,
         strikethrough: false, fields: !!null ''}]
     listen:
-      Date Range: quality_date.calendar_date
-      Data Source: data_quality.data_source
-      Data Layer: data_quality.data_layer
+      date_range: quality_date.date_actual_date
+      data_source_filter: data_quality.data_source
+      data_layer_filter: data_quality.data_layer
     row: 0
     col: 12
     width: 4
     height: 4
-    
+
   - title: Average Flow Efficiency
     name: average_flow_efficiency
     model: ecommerce_demo
@@ -178,14 +178,14 @@
           palette_id: 56d0c358-10a0-4fd6-aa0b-b117bef527ab}, bold: false, italic: false,
         strikethrough: false, fields: !!null ''}]
     listen:
-      Date Range: quality_date.calendar_date
-      Data Source: data_quality.data_source
-      Data Layer: data_quality.data_layer
+      date_range: quality_date.date_actual_date
+      data_source_filter: data_quality.data_source
+      data_layer_filter: data_quality.data_layer
     row: 0
     col: 16
     width: 4
     height: 4
-    
+
   - title: Data Quality Score
     name: data_quality_score
     model: ecommerce_demo
@@ -208,24 +208,23 @@
           palette_id: 56d0c358-10a0-4fd6-aa0b-b117bef527ab}, bold: false, italic: false,
         strikethrough: false, fields: !!null ''}]
     listen:
-      Date Range: quality_date.calendar_date
-      Data Source: data_quality.data_source
-      Data Layer: data_quality.data_layer
+      date_range: quality_date.date_actual_date
+      data_source_filter: data_quality.data_source
+      data_layer_filter: data_quality.data_layer
     row: 0
     col: 20
     width: 4
     height: 4
-    
+
   # Pipeline Health Trend
   - title: Pipeline Health Trend
     name: pipeline_health_trend
     model: ecommerce_demo
     explore: data_quality
     type: looker_line
-    fields: [quality_date.calendar_date, data_quality.average_pipeline_health, 
+    fields: [quality_date.date_actual_date, data_quality.average_pipeline_health,
              data_quality.overall_test_pass_rate, data_quality.average_flow_efficiency]
-    fill_fields: [quality_date.calendar_date]
-    sorts: [quality_date.calendar_date desc]
+    sorts: [quality_date.date_actual_date desc]
     limit: 500
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -262,21 +261,21 @@
         valueFormat: '0.0%', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
     listen:
-      Date Range: quality_date.calendar_date
-      Data Source: data_quality.data_source
-      Data Layer: data_quality.data_layer
+      date_range: quality_date.date_actual_date
+      data_source_filter: data_quality.data_source
+      data_layer_filter: data_quality.data_layer
     row: 4
     col: 0
     width: 24
     height: 8
-    
+
   # Data Source Health Status
   - title: Data Source Health Status
     name: data_source_health_status
     model: ecommerce_demo
     explore: data_quality
     type: looker_bar
-    fields: [data_quality.data_source, data_quality.average_pipeline_health, 
+    fields: [data_quality.data_source, data_quality.average_pipeline_health,
              data_quality.overall_test_pass_rate, data_quality.health_status]
     pivots: [data_quality.health_status]
     sorts: [data_quality.average_pipeline_health desc, data_quality.health_status]
@@ -317,21 +316,21 @@
       Critical - data_quality.count: "#d62728"
       Failed - data_quality.count: "#8b0000"
     listen:
-      Date Range: quality_date.calendar_date
-      Data Source: data_quality.data_source
-      Data Layer: data_quality.data_layer
+      date_range: quality_date.date_actual_date
+      data_source_filter: data_quality.data_source
+      data_layer_filter: data_quality.data_layer
     row: 12
     col: 0
     width: 12
     height: 8
-    
+
   # Data Flow Efficiency by Layer
   - title: Data Flow Efficiency by Layer
     name: data_flow_efficiency_layer
     model: ecommerce_demo
     explore: data_quality
     type: looker_column
-    fields: [data_quality.data_layer, data_quality.source_to_staging_flow_pct, 
+    fields: [data_quality.data_layer, data_quality.source_to_staging_flow_pct,
              data_quality.staging_to_integration_flow_pct, data_quality.integration_to_warehouse_flow_pct,
              data_quality.end_to_end_flow_pct]
     sorts: [data_quality.data_layer]
@@ -365,14 +364,14 @@
     totals_color: "#808080"
     value_format: "0%"
     listen:
-      Date Range: quality_date.calendar_date
-      Data Source: data_quality.data_source
-      Data Layer: data_quality.data_layer
+      date_range: quality_date.date_actual_date
+      data_source_filter: data_quality.data_source
+      data_layer_filter: data_quality.data_layer
     row: 12
     col: 12
     width: 12
     height: 8
-    
+
   # Data Volume by Source
   - title: Data Volume by Source
     name: data_volume_by_source
@@ -392,14 +391,14 @@
     series_colors: {}
     value_format: "#,##0"
     listen:
-      Date Range: quality_date.calendar_date
-      Data Source: data_quality.data_source
-      Data Layer: data_quality.data_layer
+      date_range: quality_date.date_actual_date
+      data_source_filter: data_quality.data_source
+      data_layer_filter: data_quality.data_layer
     row: 20
     col: 0
     width: 12
     height: 8
-    
+
   # Error and Warning Summary
   - title: Error and Warning Summary
     name: error_warning_summary
@@ -440,9 +439,9 @@
       data_quality.total_errors: "#d62728"
       data_quality.total_warnings: "#ff7f0e"
     listen:
-      Date Range: quality_date.calendar_date
-      Data Source: data_quality.data_source
-      Data Layer: data_quality.data_layer
+      date_range: quality_date.date_actual_date
+      data_source_filter: data_quality.data_source
+      data_layer_filter: data_quality.data_layer
     row: 20
     col: 12
     width: 12

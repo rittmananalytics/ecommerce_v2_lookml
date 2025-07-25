@@ -3,9 +3,9 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: "Marketing campaign performance, attribution analysis, and channel effectiveness"
-  
+
   refresh: 1 hour
-  
+
   filters:
   - name: date_range
     title: Date Range
@@ -18,8 +18,8 @@
       display: inline
     model: ecommerce_demo
     explore: marketing_performance
-    field: performance_date.calendar_date
-    
+    field: activity_date.date_actual_date
+
   - name: platform_filter
     title: Platform
     type: field_filter
@@ -32,7 +32,7 @@
     model: ecommerce_demo
     explore: marketing_performance
     field: marketing_performance.platform
-    
+
   - name: campaign_status
     title: Campaign Status
     type: field_filter
@@ -45,9 +45,9 @@
     model: ecommerce_demo
     explore: marketing_performance
     field: marketing_performance.campaign_status
-    
+
   elements:
-  
+
   # Marketing KPIs
   - title: Total Ad Spend
     name: total_ad_spend
@@ -61,14 +61,14 @@
     show_comparison: false
     value_format: "$#,##0"
     listen:
-      Date Range: performance_date.calendar_date
-      Platform: marketing_performance.platform
-      Campaign Status: marketing_performance.campaign_status
+      date_range: activity_date.date_actual_date
+      platform_filter: marketing_performance.platform
+      campaign_status: marketing_performance.campaign_status
     row: 0
     col: 0
     width: 4
     height: 4
-    
+
   - title: Total Conversions
     name: total_conversions
     model: ecommerce_demo
@@ -81,14 +81,14 @@
     show_comparison: false
     value_format: "#,##0"
     listen:
-      Date Range: performance_date.calendar_date
-      Platform: marketing_performance.platform
-      Campaign Status: marketing_performance.campaign_status
+      date_range: activity_date.date_actual_date
+      platform_filter: marketing_performance.platform
+      campaign_status: marketing_performance.campaign_status
     row: 0
     col: 4
     width: 4
     height: 4
-    
+
   - title: Overall ROAS
     name: overall_roas
     model: ecommerce_demo
@@ -111,14 +111,14 @@
           palette_id: 56d0c358-10a0-4fd6-aa0b-b117bef527ab}, bold: false, italic: false,
         strikethrough: false, fields: !!null ''}]
     listen:
-      Date Range: performance_date.calendar_date
-      Platform: marketing_performance.platform
-      Campaign Status: marketing_performance.campaign_status
+      date_range: activity_date.date_actual_date
+      platform_filter: marketing_performance.platform
+      campaign_status: marketing_performance.campaign_status
     row: 0
     col: 8
     width: 4
     height: 4
-    
+
   - title: Overall CPA
     name: overall_cpa
     model: ecommerce_demo
@@ -131,14 +131,14 @@
     show_comparison: false
     value_format: "$#,##0"
     listen:
-      Date Range: performance_date.calendar_date
-      Platform: marketing_performance.platform
-      Campaign Status: marketing_performance.campaign_status
+      date_range: activity_date.date_actual_date
+      platform_filter: marketing_performance.platform
+      campaign_status: marketing_performance.campaign_status
     row: 0
     col: 12
     width: 4
     height: 4
-    
+
   - title: Overall CTR
     name: overall_ctr
     model: ecommerce_demo
@@ -151,14 +151,14 @@
     show_comparison: false
     value_format: "0.00%"
     listen:
-      Date Range: performance_date.calendar_date
-      Platform: marketing_performance.platform
-      Campaign Status: marketing_performance.campaign_status
+      date_range: activity_date.date_actual_date
+      platform_filter: marketing_performance.platform
+      campaign_status: marketing_performance.campaign_status
     row: 0
     col: 16
     width: 4
     height: 4
-    
+
   - title: Conversion Rate
     name: conversion_rate
     model: ecommerce_demo
@@ -171,24 +171,24 @@
     show_comparison: false
     value_format: "0.00%"
     listen:
-      Date Range: performance_date.calendar_date
-      Platform: marketing_performance.platform
-      Campaign Status: marketing_performance.campaign_status
+      date_range: activity_date.date_actual_date
+      platform_filter: marketing_performance.platform
+      campaign_status: marketing_performance.campaign_status
     row: 0
     col: 20
     width: 4
     height: 4
-    
+
   # Daily Marketing Performance
   - title: Daily Marketing Performance
     name: daily_marketing_performance
     model: ecommerce_demo
     explore: marketing_performance
     type: looker_line
-    fields: [performance_date.calendar_date, marketing_performance.total_spend, 
+    fields: [activity_date.date_actual_date, marketing_performance.total_spend,
              marketing_performance.total_conversions, marketing_performance.overall_roas]
-    fill_fields: [performance_date.calendar_date]
-    sorts: [performance_date.calendar_date desc]
+    fill_fields: [activity_date.date_actual_date]
+    sorts: [activity_date.date_actual_date desc]
     limit: 500
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -222,21 +222,21 @@
             name: Overall Roas}], showLabels: true, showValues: true, valueFormat: '0.00x',
         unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
     listen:
-      Date Range: performance_date.calendar_date
-      Platform: marketing_performance.platform
-      Campaign Status: marketing_performance.campaign_status
+      date_range: activity_date.date_actual_date
+      platform_filter: marketing_performance.platform
+      campaign_status: marketing_performance.campaign_status
     row: 4
     col: 0
     width: 24
     height: 8
-    
+
   # Platform Performance Comparison
   - title: Platform Performance Comparison
     name: platform_performance
     model: ecommerce_demo
     explore: marketing_performance
     type: looker_bar
-    fields: [marketing_performance.platform, marketing_performance.total_spend, 
+    fields: [marketing_performance.platform, marketing_performance.total_spend,
              marketing_performance.total_conversions, marketing_performance.overall_roas]
     sorts: [marketing_performance.total_spend desc]
     limit: 500
@@ -275,21 +275,21 @@
             name: Overall Roas}], showLabels: true, showValues: true, valueFormat: '0.00x',
         unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
     listen:
-      Date Range: performance_date.calendar_date
-      Platform: marketing_performance.platform
-      Campaign Status: marketing_performance.campaign_status
+      date_range: activity_date.date_actual_date
+      platform_filter: marketing_performance.platform
+      campaign_status: marketing_performance.campaign_status
     row: 12
     col: 0
     width: 12
     height: 8
-    
+
   # Campaign Performance Scatter
   - title: Campaign Performance Matrix (Spend vs ROAS)
     name: campaign_performance_matrix
     model: ecommerce_demo
     explore: marketing_performance
     type: looker_scatter
-    fields: [marketing_performance.campaign_name, marketing_performance.total_spend, 
+    fields: [marketing_performance.campaign_name, marketing_performance.total_spend,
              marketing_performance.overall_roas, marketing_performance.platform]
     sorts: [marketing_performance.total_spend desc]
     limit: 50
@@ -324,14 +324,14 @@
       pinterest_ads: "#d62728"
       twitter_ads: "#9467bd"
     listen:
-      Date Range: performance_date.calendar_date
-      Platform: marketing_performance.platform
-      Campaign Status: marketing_performance.campaign_status
+      date_range: activity_date.date_actual_date
+      platform_filter: marketing_performance.platform
+      campaign_status: marketing_performance.campaign_status
     row: 12
     col: 12
     width: 12
     height: 8
-    
+
   # Channel Attribution Analysis
   - title: Channel Attribution Mix
     name: channel_attribution_mix
@@ -351,12 +351,12 @@
     series_colors: {}
     value_format: "$#,##0"
     listen:
-      Date Range: attribution_date.calendar_date
+      date_range: attribution_date.date_actual_date
     row: 20
     col: 0
     width: 12
     height: 8
-    
+
   # Top Performing Campaigns
   - title: Top Performing Campaigns by ROAS
     name: top_campaigns_roas
@@ -403,9 +403,9 @@
       facebook_ads: "#ff7f0e"
       klaviyo_emails: "#2ca02c"
     listen:
-      Date Range: performance_date.calendar_date
-      Platform: marketing_performance.platform
-      Campaign Status: marketing_performance.campaign_status
+      date_range: activity_date.date_actual_date
+      platform_filter: marketing_performance.platform
+      campaign_status: marketing_performance.campaign_status
     row: 20
     col: 12
     width: 12

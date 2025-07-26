@@ -275,10 +275,9 @@
     model: ecommerce_demo
     explore: data_quality
     type: looker_bar
-    fields: [data_quality.data_source, data_quality.average_pipeline_health,
-             data_quality.overall_test_pass_rate, data_quality.health_status]
+    fields: [data_quality.data_source, data_quality.count, data_quality.health_status]
     pivots: [data_quality.health_status]
-    sorts: [data_quality.average_pipeline_health desc, data_quality.health_status]
+    sorts: [data_quality.data_source]
     limit: 500
     x_axis_gridlines: false
     y_axis_gridlines: true

@@ -89,14 +89,14 @@
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
-    value_format: "0.0"
-    conditional_formatting: [{type: greater than, value: 8, background_color: "#1f77b4",
+    value_format: "0.0\"%\""
+    conditional_formatting: [{type: greater than, value: 80, background_color: "#1f77b4",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
           palette_id: 56d0c358-10a0-4fd6-aa0b-b117bef527ab}, bold: false, italic: false,
-        strikethrough: false, fields: !!null ''}, {type: between, value: [6, 8], background_color: "#ff7f0e",
+        strikethrough: false, fields: !!null ''}, {type: between, value: [60, 80], background_color: "#ff7f0e",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
           palette_id: 56d0c358-10a0-4fd6-aa0b-b117bef527ab}, bold: false, italic: false,
-        strikethrough: false, fields: !!null ''}, {type: less than, value: 6, background_color: "#d62728",
+        strikethrough: false, fields: !!null ''}, {type: less than, value: 60, background_color: "#d62728",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
           palette_id: 56d0c358-10a0-4fd6-aa0b-b117bef527ab}, bold: false, italic: false,
         strikethrough: false, fields: !!null ''}]

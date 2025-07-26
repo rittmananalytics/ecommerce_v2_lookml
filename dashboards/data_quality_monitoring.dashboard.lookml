@@ -59,7 +59,7 @@
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
-    value_format: "0.0%"
+    value_format: "0.0"
     conditional_formatting: [{type: greater than, value: 0.95, background_color: "#1f77b4",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
           palette_id: 56d0c358-10a0-4fd6-aa0b-b117bef527ab}, bold: false, italic: false,
@@ -166,7 +166,7 @@
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
-    value_format: "0.0%"
+    value_format: "0.0"
     conditional_formatting: [{type: greater than, value: 0.9, background_color: "#1f77b4",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
           palette_id: 56d0c358-10a0-4fd6-aa0b-b117bef527ab}, bold: false, italic: false,
@@ -196,7 +196,7 @@
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
-    value_format: "0.0%"
+    value_format: "0.0"
     conditional_formatting: [{type: greater than, value: 0.9, background_color: "#1f77b4",
         font_color: !!null '', color_application: {collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2,
           palette_id: 56d0c358-10a0-4fd6-aa0b-b117bef527ab}, bold: false, italic: false,
@@ -258,7 +258,7 @@
             id: data_quality.overall_test_pass_rate, name: Overall Test Pass Rate},
           {axisId: data_quality.average_flow_efficiency, id: data_quality.average_flow_efficiency,
             name: Average Flow Efficiency}], showLabels: true, showValues: true,
-        valueFormat: '0.0%', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+        valueFormat: '0.0', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
     listen:
       date_range: quality_date.date_actual_date
@@ -362,7 +362,7 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    value_format: "0%"
+    value_format: "0"
     listen:
       date_range: quality_date.date_actual_date
       data_source_filter: data_quality.data_source

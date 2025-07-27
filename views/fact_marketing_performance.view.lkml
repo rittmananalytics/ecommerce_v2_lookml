@@ -51,8 +51,8 @@ view: fact_marketing_performance {
   dimension: campaign_status {
     type: string
     sql: CASE
-      WHEN ${activity_date} >= CURRENT_DATE() - 7 THEN 'active'
-      WHEN ${activity_date} >= CURRENT_DATE() - 30 THEN 'recent'
+      WHEN DATE(${activity_raw}) >= CURRENT_DATE() - 7 THEN 'active'
+      WHEN DATE(${activity_raw}) >= CURRENT_DATE() - 30 THEN 'recent'
       ELSE 'inactive'
     END ;;
     description: "Campaign status based on activity"
@@ -232,6 +232,18 @@ view: fact_marketing_performance {
     drill_fields: [marketing_key, activity_date, platform, content_name]
   }
 
+  measure: records_with_spend {
+    type: count
+    filters: [spend_amount: ">0"]
+    description: "Count of records with spend > 0"
+  }
+
+  measure: records_with_nulls {
+    type: count
+    filters: [spend_amount: "NULL"]
+    description: "Count of records with NULL spend"
+  }
+
   measure: total_spend {
     type: sum
     sql: COALESCE(${spend_amount}, 0) ;;
@@ -355,5 +367,19 @@ view: fact_marketing_performance {
     sql: ${total_conversions} / NULLIF(${total_clicks}, 0) ;;
     value_format_name: percent_2
     description: "Overall conversion rate"
+  }
+
+  # Debug measure to check if data exists
+  measure: debug_total_spend {
+    type: number
+    sql: SUM(${TABLE}.spend_amount) ;;
+    value_format_name: usd
+    description: "Debug: Direct sum of spend_amount from table"
+  }
+
+  measure: debug_row_count {
+    type: count_distinct
+    sql: ${TABLE}.marketing_key ;;
+    description: "Debug: Count of distinct marketing keys"
   }
 }

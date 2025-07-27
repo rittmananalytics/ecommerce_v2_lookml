@@ -208,57 +208,7 @@
     width: 12
     height: 8
 
-  # Sales by Country
-  - title: Sales by Country
-    name: sales_by_country
-    model: ecommerce_demo
-    explore: order_items
-    type: looker_bar
-    fields: [order_items.order_country, order_items.total_revenue, order_items.count_orders]
-    sorts: [order_items.total_revenue desc]
-    limit: 15
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: true
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    y_axes: [{label: Revenue, orientation: left, series: [{axisId: orders.total_revenue,
-            id: orders.total_revenue, name: Total Revenue}], showLabels: true, showValues: true,
-        valueFormat: '$#,##0', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
-        type: linear}, {label: Orders, orientation: right, series: [{axisId: orders.count,
-            id: orders.count, name: Count Orders}], showLabels: true, showValues: true,
-        valueFormat: '#,##0', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
-        type: linear}]
-    listen:
-      date_range: order_date.date_actual_date
-      product_vendor: products.vendor
-      customer_country: order_items.order_country
-    row: 12
-    col: 12
-    width: 12
-    height: 8
+
 
   # Order Size Distribution
   - title: Order Size Distribution
@@ -307,55 +257,8 @@
       date_range: order_date.date_actual_date
       product_vendor: products.vendor
       customer_country: order_items.order_country
-    row: 20
-    col: 0
-    width: 12
-    height: 8
-
-  # Top Customers by Revenue
-  - title: Top Customers by Revenue
-    name: top_customers_revenue
-    model: ecommerce_demo
-    explore: orders
-    type: looker_bar
-    fields: [customers.full_name, customers.customer_email, orders.total_revenue, orders.count]
-    filters:
-      customers.is_current: "Yes"
-    sorts: [orders.total_revenue desc]
-    limit: 15
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: true
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    value_format: "$#,##0"
-    listen:
-      date_range: order_date.date_actual_date
-      product_vendor: products.vendor
-      customer_country: order_items.order_country
-    row: 20
+    row: 12
     col: 12
     width: 12
     height: 8
+

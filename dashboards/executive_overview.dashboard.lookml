@@ -242,54 +242,6 @@
     width: 8
     height: 6
 
-  # Marketing Performance
-  - title: Marketing Spend vs Revenue
-    name: marketing_spend_vs_revenue
-    model: ecommerce_demo
-    explore: executive_overview
-    type: looker_column
-    fields: [exec_marketing.activity_date, exec_marketing.total_spend, exec_marketing.total_revenue]
-    fill_fields: [exec_marketing.activity_date]
-    filters:
-      exec_marketing.activity_date: "30 days"
-    sorts: [exec_marketing.activity_date]
-    limit: 500
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_colors:
-      exec_marketing.total_spend: "#E52165"
-      exec_marketing.total_revenue: "#0071F2"
-    listen:
-      date_range: exec_order_date.date_actual_date
-    row: 10
-    col: 8
-    width: 16
-    height: 6
 
   # Session Metrics
   - title: Website Conversion Funnel
@@ -313,7 +265,7 @@
     labelColor: "#FFF"
     listen:
       date_range: exec_order_date.date_actual_date
-    row: 16
-    col: 0
-    width: 24
+    row: 10
+    col: 8
+    width: 16
     height: 6
